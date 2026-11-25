@@ -1,19 +1,29 @@
 .start {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: auto;
-  align-self: center;
+  align-self: stretch;
+  width: min(100%, 900px);
+  padding: 0 16px;
+  box-sizing: border-box;
 }
 
 .pokemon-details {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-self: center;
-  margin: 12px;
-  padding: 12px;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 8px 0;
+  padding: 8px;
   border: 3px double var(--border);
 }
 
 .pokemon-details > img,
 .pokemon-details > .details {
-  flex: 1;
   min-width: 0;
   box-sizing: border-box;
 }
@@ -21,10 +31,52 @@
 .pokemon-details > img {
   width: 100%;
   max-width: 100%;
+  height: min(32svh, 240px);
   object-fit: contain;
 }
 
 .details {
   text-align: left;
   align-content: center;
+}
+
+.details h2 {
+  overflow-wrap: anywhere;
+}
+
+.details h3 {
+  margin: 0.5em 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+  .start {
+    padding: 0 12px;
+  }
+
+  .pokemon-details {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 4px;
+    padding: 8px;
+  }
+
+  .pokemon-details > img {
+    width: 100%;
+    height: min(22svh, 150px);
+    justify-self: center;
+  }
+
+  .details {
+    text-align: left;
+  }
+
+  .details h2 {
+    font-size: clamp(0.6rem, 2.8vw, 0.75rem);
+  }
+
+  .details h3 {
+    font-size: clamp(0.45rem, 2vw, 0.6rem);
+    line-height: 1.7;
+    margin: 0.35em 0;
+  }
 }
