@@ -1,19 +1,62 @@
-# React + Vite
+# Pokémon Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small React + Vite app that lets you browse the original 151 Pokémon. Pick one
+from the dropdown and the app fetches its details — sprite, type, weight and
+height — from the [PokéAPI](https://pokeapi.co/). Styled with a retro Game Boy
+look and feel.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Loads the first 151 Pokémon into a searchable dropdown.
+- Fetches full details on demand when a Pokémon is selected.
+- Displays sprite, type(s), weight (kg) and height (cm).
+- Game Boy–inspired styling and responsive layout.
 
-## React Compiler
+## Tech stack
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- [React 19](https://react.dev/)
+- [Vite](https://vite.dev/) with the React Compiler enabled
+- [PokéAPI](https://pokeapi.co/) as the data source
 
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+## Getting started
 
-## Expanding the ESLint configuration
+Requires [Node.js](https://nodejs.org/) (18+ recommended).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+# Install dependencies
+npm install
+
+# Start the dev server (with HMR)
+npm run dev
+```
+
+Then open the URL printed in the terminal (usually http://localhost:5173).
+
+## Available scripts
+
+| Command           | Description                                  |
+| ----------------- | -------------------------------------------- |
+| `npm run dev`     | Start the Vite dev server with hot reloading |
+| `npm run build`   | Build the app for production into `dist/`    |
+| `npm run preview` | Preview the production build locally         |
+| `npm run lint`    | Run ESLint over the project                  |
+
+## Project structure
+
+```
+src/
+├── App.jsx                        # Entry component with Start/Close toggle
+├── components/
+│   ├── PokemonApplication.jsx     # Fetches the list and selected details
+│   └── Pokemon.jsx                # Presentational card for one Pokémon
+├── App.css / index.css            # Styling
+└── main.jsx                       # React root
+```
+
+## How it works
+
+1. `App` renders a title and a **Start** button that mounts the Pokémon app.
+2. `PokemonApplication` fetches the list of 151 Pokémon on mount and populates
+   the dropdown.
+3. When a Pokémon is selected, a second request fetches its details, which are
+   passed to the `Pokemon` component for display.
