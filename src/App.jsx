@@ -10,7 +10,7 @@ function App() {
     <div className="start">
       <h1>Pokemon Application</h1>
       <button onClick={() => setShowApp(!showApp)}>
-        {showApp ? "Close" : "Start Pokemon App"}
+        {showApp ? "Close" : "Start"}
       </button>
       {showApp && <PokemonApplication />}
     </div>
