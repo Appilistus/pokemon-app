@@ -34,7 +34,6 @@ function PokemonApplication () {
 
   return (
     <>
-      <h2>Choose a Pokemon</h2>
       <select
         value={chosenPokemon}
         onChange={(e) => setChosenPokemon(e.target.value)}
