@@ -4,8 +4,8 @@
   --btn: #306230;
   --hover: #8bac0f;
   --border: #0f380f;
+  --select: #87a90e;
 
-  --social-bg: rgba(244, 243, 236, 0.5);
   --sans: 'Pixelify Sans', sans-serif;
   --heading: 'Pixelify Sans', sans-serif;
 
@@ -75,7 +75,7 @@ button{
   display:inline-flex;
   align-self:center;
   justify-content:center;
-  width: 40%;
+  width: 200px;
   padding: 12px;
   margin-top: 12px;
   margin-bottom: 36px;
@@ -103,6 +103,9 @@ select{
   padding:12px;
   font-family: var(--sans);
   font-size: large;
+  background-color: var(--select);
+  border:2px solid var(--border);
+
 }
 
 img {
